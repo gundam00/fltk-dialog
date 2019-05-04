@@ -76,7 +76,7 @@ int dialog_dropdown(std::string dropdown_list, bool return_number, char separato
   }
 
   menu_items[vec_size] = { 0,0,0,0,0,0,0,0,0 };
-  vec.clear();
+  
 
   win = new Fl_Double_Window(320, 110, title);
   win->callback(close_cb, 1);
