@@ -323,8 +323,12 @@ void l10n(void)
     return;
   }
 
-  if (strncmp("en", env, 2) == 0 || strcmp("C", env) == 0) {
-    return;
+  if (strncmp("en", env, 2) == 0 || strcmp("C", env) == 0) 
+  {
+    /* 
+      Use default {selected_language}; i.e. {LANG_EN}.
+      Will soon init {fl_*, item_month} below.         
+    */    
   } else if (strncmp(env, "ar", 2) == 0) {
     selected_language = LANG_AR;
   } else if (strncmp(env, "de", 2) == 0) {
