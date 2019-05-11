@@ -77,20 +77,20 @@ int dialog_radiolist(std::string radiolist_options, bool return_number, char sep
     {
       g1a = new Fl_Group(0, 0, 420, 290);
       {
-        for (size_t i = 0; i < vec.size(); ++i)
-        {
-          browser = new radiolist_browser(10, 10, 400, 289);
-          browser->when(FL_WHEN_CHANGED);
-          browser->box(FL_THIN_DOWN_BOX);
-          browser->color(fl_lighter(fl_lighter(FL_BACKGROUND_COLOR)));
-          browser->clear_visible_focus();
-          for (auto it = vec.begin(); it != vec.end(); ++it) {
-            std::string &s = *it;
-            browser->add(s.c_str());
-          }
-          browser->callback(callback);
-          vec.clear();
-        }
+         browser = new radiolist_browser(10, 10, 400, 289);    
+         browser->when(FL_WHEN_CHANGED);
+         browser->box(FL_THIN_DOWN_BOX);
+         browser->color(fl_lighter(fl_lighter(FL_BACKGROUND_COLOR)));
+         browser->clear_visible_focus();
+
+         for (const auto& item_label : vec )
+         {            
+            browser->add(item_label.c_str());
+         }
+         
+        browser->callback(callback);
+         vec.clear();
+        
         dummy1 = new Fl_Box(10, 288, 400, 1);
         dummy1->box(FL_NO_BOX);
       }
